@@ -1,0 +1,14 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+#- file: markdown
+#- file: notebooks
+- file: docs/business_understanding
+- file: docs/data_understanding
+- file: docs/data_preparation
+- file: docs/modelling
+- file: docs/evaluation
+#- file: docs/deployment

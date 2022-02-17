@@ -1,0 +1,582 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interpretation und Auswertung &#8212; DataLab Gefühlsanalyse (Musterbeispiel)</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Modellierung" href="modelling.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/index.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">DataLab Gefühlsanalyse (Musterbeispiel)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Data Lab: Gefühlsanalyse (Musterbeispiel)
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="business_understanding.html">
+   Aufgabenverständnis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_understanding.html">
+   Datenverständnis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_preparation.html">
+   Datenvorbereitung
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="modelling.html">
+   Modellierung
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Interpretation und Auswertung
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/docs/evaluation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/docs/evaluation.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/evaluation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/evaluation.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testvorhersagen">
+   Testvorhersagen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#auswertung">
+   Auswertung
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Interpretation und Auswertung</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testvorhersagen">
+   Testvorhersagen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#auswertung">
+   Auswertung
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <!-- Configure and load Thebe !-->
+<script type="text/x-thebe-config">
+{
+   codeMirrorConfig: {
+    readOnly: true
+  },
+  bootstrap: true,
+  requestKernel: true,
+  binderOptions: {
+    repo: "hackenjoe/requirements",
+  }
+}
+</script>
+<script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+<div class="tex2jax_ignore mathjax_ignore section" id="interpretation-und-auswertung">
+<span id="evaluation"></span><h1>Interpretation und Auswertung<a class="headerlink" href="#interpretation-und-auswertung" title="Permalink to this headline">¶</a></h1>
+<div class="dropdown admonition">
+<p class="admonition-title">Erklärung zum Prozessschritt (Aufklappen)</p>
+<p>In dieser Projektphase steht die Evaluation des zuvor entwickelten Modells im Fokus. Das ist ein wichtiger Schritt bevor das Modell dann wirklich zum Einsatz kommt. In manchen Fällen muss zur Ausgangssituation zurückgesprungen werden, wenn die Auswertungen zeigen, dass sich das Problem nicht mit dem Lernmodell lösen lässt. Umso wichtiger ist daher zu hinterfragen, ob dass Modell wirklich die Qualität bietet, um die vereinbarten Zielsetzungen zu erfüllen. Denn ist die KI-Lösung erst einmal im Produktivumfeld im Einsatz sind retrospektivische Schritte nur mit hohen Aufwänden realisierbar. Es gibt viele Möglichkeiten die Anwendungslösung zu testen und die Resultate zu evaluieren: Vom klassischen Testen des Anwenders bis hin zum Testeinsatz in einer kontrollierten Testumgebung. Häufig jedoch lassen sich bereits durch statistische Metriken die Güteklasse eines Modells im Vorfeld bestimmen. Hierbei ist es fundamental Daten zu verwenden, die das Modell bisher noch nicht gesehen hat. Diese werden auch Testdaten genannt. Zusammenfassend lässt sich diese Phase also in folgende Teilschritte unterteilen:</p>
+<ul class="simple">
+<li><p>Bewertung der Modellergebnisse durch unabhängige Daten</p></li>
+<li><p>Ganzheitliche Bewertung des Prozesses</p></li>
+<li><p>Nächste Schritte mit dem Anwender besprechen</p></li>
+</ul>
+<p>Das KI-Kompetenzzentrum der THU erfüllt diese Aufgabe durch die fachgerechte Bewertung des Modells. Verschiedene Metriken und Kennzahlen unterstützen die Interpretierbarkeit der Anwendung. Hierbei ist auch ein Austausch mit Ihnen erforderlich, um die Ergebnisse zu validieren.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Handwerkerbewertungen:</p>
+<p>Für die Klassifizierzung von neuen Handwerkerbewertungen könnte beispielsweise eine Wahrheitstabelle die Bewertungsgenauigkeit des Modells zeigen. Schließlich sollte das Modell stark genug für die automatische Klassifizierung eingehender neuer Kundenmails sein, weshalb ein akzeptabler Genauigkeitswert vorhanden sein sollte.</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Hinweis:</p>
+<p>Diese Art der Klassifizierung die wir hier durchführen gehört terminologisch zu den Vorhersagenanalysen (engl. Predictive Analytics). Das Modell erhält neue noch nie zuvor gesehene Bewertungstexte und sagt dann voraus, ob es sich um eine negative, neutrale oder positive Rezension handelt (bevor ein Supportmitarbeiter überhaupt erst die Mail gelesen hat und selbst auf Basis seiner Erfahrungen den Text klassifiziert).</p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_formats = [&#39;svg&#39;]
+<span class="kn">from</span> <span class="nn">sentimental_imports</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">sentimental_class</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;bewertungen_aufbereitet.csv&quot;</span><span class="p">)</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;nlptown/bert-base-multilingual-uncased-sentiment&quot;</span>
+<span class="n">model_b</span> <span class="o">=</span> <span class="n">SentimentModel</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\Pascal\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="testvorhersagen">
+<h2>Testvorhersagen<a class="headerlink" href="#testvorhersagen" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bewertungsfunktion</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">model_b</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table><tbody><tr><td><b>Bewertungstext</b>&nbsp;</td><td><b>Vorhersage</b>&nbsp;</td><td><b>Tatsächlich</b>&nbsp;</td></tr><tr><td>Boooman Wenn's gut werden muss, besser nicht zu Bauhaus.Bzw wenn es überhaupt was werden muss!! &nbsp;</td><td>😡&nbsp;</td><td>😡&nbsp;</td></tr>
+<tr><td>Arbeit eins A super freundliche Arbeiter sauber alles erledigt auch unserer Heizungsbauer hat gesagt das er zum ersten Mal solche Elektriker sieht die ihren Dreck gleich wegräumen und nichts liegen lassen alles nur super danke an die besten Arbeiter der Firma Kaib. Könnte nur weiter empfehlen preisleistung top Elektro und pv Anlage alles super erklärt vor Ort gleich app installiert das alles sauber läuft wir sind zufrieden was wir alles bekommen haben. Danke nochmal...... &nbsp;</td><td>😄&nbsp;</td><td>😄&nbsp;</td></tr>
+<tr><td>Schlechte Laune wird am Kunden ausgelassen, Termine werden nicht eingehalten (wurde bis zu 3 Mal vertröstet für EINE Sache). Es wurden Sachen genäht repariert die nicht in Auftrag gegeben worden sind (weil die Dame es nicht mehr genau wusste oder warum auch immer). Man ärgert sich dann nur, wenn man das Kleidungsstück anziehen möchte und feststellt, dass der eigentliche Auftrag nicht erfüllt worden ist. Kritikfähigkeit Ihrerseits = 0! Ich werde keine Kleidungsstücke mehr zu Frau Emmerich hinbringen. Das hat sich für mich erledigt. Da gibt es andere Geschäfte, die einfach kompetenter sind, was den Kundenservice insgesamt betrifft. &nbsp;</td><td>😡&nbsp;</td><td>😡&nbsp;</td></tr>
+<tr><td>Der Mittarbeiter Herr M. ist schon teilweise recht merkwürdig. Aber die Arbeit die hier abgeliefert wurde überzeug im Ergebnis. Wir haben in unser neu erworbenen Wohnung das Badezimmer neu machen lassen und den Wohnbereich komplett mit einer Holzoptik-Fliese belegen lassen. Danke an das Hanse-Bäder Team und deren Partnerfirmen. &nbsp;</td><td>😄&nbsp;</td><td>😄&nbsp;</td></tr>
+<tr><td>angesichts der absolut vernachlässigten Vorsorgemassnahmen kann man zur Zeit vor einem Einkauf im Bauhaus Kassel nur abraten. Personal ohne Mundschutz , volle Gänge, keinerlei Abstand, unglaublich schlecht organisiert. Jedes andere Geschäft achtet auf die Regeln, hier kümmert es niemand . Ansteckungsgefahr sehr hoch . In normalen Zeiten kaufen wir sehr gern hier ein . &nbsp;</td><td>😡&nbsp;</td><td>😡&nbsp;</td></tr>
+<tr><td>Hält sich nicht an Terminabsprachen - mehr als ärgerlich für Berufstätige die sich die Zeit extra freischaufeln müssen.Effizienz des durchgeführten "hydraulischen Abgleichs" ohne Berücksichtigung der Rohrnetzlängen und des Durchflusses wirft Fragen auf. &nbsp;</td><td>😡&nbsp;</td><td>😡&nbsp;</td></tr>
+<tr><td>golocal Nutzer Ich habe mich für ein Nashorn mit Bemalung interessiert und im Shop angerufen. Dort bin ich, obwohl unbekannt, sehr gut am Telefon informiert worden. Habe dann wegen des anmalens, BVB, die Tel.-Nr. des Künstlers bekommen und mich sofort mit ihm kurz geschlossen. Auch hier alles super. Habe dann das Nashorn 50 cm gekauft und nun ist es auf dem Weg zum Künstler, alles umkompliziert und einfach. Ich freue mich schon auf das Ergebnis. ( Ist für meine Frau als BVB Fan ) D. Leske aus Dortmund &nbsp;</td><td>😄&nbsp;</td><td>😄&nbsp;</td></tr>
+<tr><td>Haasceb5 via Androiddie Dachdecker Firma arbeitet mit guter Qualität &nbsp;</td><td>😄&nbsp;</td><td>😄&nbsp;</td></tr>
+<tr><td>Sehr zuverlässig, Fliesenarbeiten und Reparaturen werden zeitnah und professionell durchgeführt. &nbsp;</td><td>😄&nbsp;</td><td>😄&nbsp;</td></tr>
+<tr><td>Petrovic Kann nur Abraten, unfreundliche Mitarbeiter, Terminvergabe Katastrophal. Und keine Besserung von meinen Problem, außer das wöchentlich das Wasser abgestellt wird ohne das es dass Problem gelöst hat. Ich vermute das die Firma nur noch über Aufträge lebt die von der Stadtverwaltung kommen. Denn jede Konkurrenz Firma wirkt Kompetenter. Wirklich schade denn ich finde man sollte kleinere Betriebe unterstützen und fördern, aber hier ist das leider nicht der Fall. &nbsp;</td><td>😡&nbsp;</td><td>😡&nbsp;</td></tr>
+<tr><td>Herr Schwellnus ist seit vielen Jahren nicht mehr tätig. Dies erfuhr ich gestern von seiner sehr liebenswürdigen Frau. &nbsp;</td><td>😡&nbsp;</td><td>😄&nbsp;</td></tr>
+<tr><td>Aeiber Bin selber Maler und kenne die Firma Hört.Wäre Kerne selbst ein Teil der Belegschaft. Mfg Andreas &nbsp;</td><td>😄&nbsp;</td><td>😄&nbsp;</td></tr>
+<tr><td>Kurzfristiger Termin wurde möglich gemacht, die Elektriker waren sehr nett und haben die Arbeit super erledigt. Kann ich nur empfehlen! &nbsp;</td><td>😄&nbsp;</td><td>😄&nbsp;</td></tr>
+<tr><td>Nief Nie wieder , neue Batterie in fast neue Uhr machen lassen, danach war diese kaputt, er sagte das war er nicht, jedoch hat die Uhr vorher funktioniert (mehrere Zeugen) dennoch hat er jede Schuld abgewiesen und den Spruch gebracht "naja Uhren gehen halt mal kaputt"bei einem Batteriewechsel kann er nichts kaputt machen !!Ich bin dann in die Stadt zu einem richtigen Uhrenmacher, dieser hat mir bestätigt das im inneren der Uhr was verbogen sei, was nicht einfach so von außen passieren kann.Ich finde das unterste Schublade für eine Dienstleistung, es kann ja was passieren, aber dann sollte man wenigstens die E... haben und auch dazu stehen. &nbsp;</td><td>😡&nbsp;</td><td>😡&nbsp;</td></tr>
+<tr><td>Malle Eine Firma die jederzeit zu empfehlen ist. Die Arbeiten werden schnell, sauber und kompetent ausgeführt. Hilfsbereite und freundliche Mitarbeiter sei es am Telefon oder vor Ort. So was nennt man Kundenorientierung. &nbsp;</td><td>😄&nbsp;</td><td>😄&nbsp;</td></tr></tbody></table></div></div>
+</div>
+<p>Auf Basis der Handwerkerdaten sehen wir, dass unser entwickeltes KI-Modell fast immer korrekt die Klassifizierungen durchführt. Um jedoch nicht nur einen Auszug von Testfällen zu erhalten, gibt es diverse statistische Methoden um die Genaugikeit des Modells zu validieren.</p>
+</div>
+<div class="section" id="auswertung">
+<h2>Auswertung<a class="headerlink" href="#auswertung" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="c1"># Wie viele Handwerkerbewertungen werden korrekt klassifiziert?</span>
+<span class="n">y_true</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;results.csv&quot;</span><span class="p">)[</span><span class="s2">&quot;0&quot;</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;results.csv&quot;</span><span class="p">)[</span><span class="s2">&quot;1&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    precision    recall  f1-score   support
+
+negative Bewertung       0.87      0.93      0.90      8648
+neutrale Bewertung       0.14      0.32      0.19       355
+positive Bewertung       0.98      0.93      0.95     20009
+
+          accuracy                           0.92     29012
+         macro avg       0.66      0.73      0.68     29012
+      weighted avg       0.94      0.92      0.93     29012
+
+Wall time: 668 ms
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Zielgenauigkeit (engl. accuracy) beträgt etwa 92%, was ein ziemlich guter und brauchbarer Scorewert für das Modell darstellt. Wir können diese Testgenauigkeit auch visuell betrachten:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;negativ&#39;</span><span class="p">,</span> <span class="s1">&#39;neutral&#39;</span><span class="p">,</span> <span class="s1">&#39;positiv&#39;</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Bewertungstabelle&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;numpy.ndarray&#39;&gt;
+29012
+Confusion matrix, without normalization
+[[ 8002   350   296]
+ [  135   115   105]
+ [ 1029   362 18618]]
+</pre></div>
+</div>
+<img alt="../_images/evaluation_7_1.svg" src="../_images/evaluation_7_1.svg" /></div>
+</div>
+<p>Die Diagonale dieser Tabelle stellt die richtig klassifizierten Handwerkerbewertungen dar. Alle Werte außerhalb der Diagonalen bilden hingegen falsche Vorhersagen ab. Demnach wurden 8002 negative Bewertungen, 115 neutrale Bewertungen und 18618 positive Bewertungen richtig klassifiziert. Dem gegenüber stehen 2.227 falsche Vorhersagen. Wir konnten also von 29.012 Testbewertungen rund 26.735 Bewertungen richtig einstufen. Das ist durchaus ein guter Wert. Durch Finetuning könnte man das Modell noch durch andere Parameter oder einfach durch erneutes Training noch weiter verbessern. Wie auch immer, das Modell entscheidet in über 9 Fällen von 10 richtig. Zeigen wir uns dennoch ein paar falsche Klassifikationen an:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_t</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;handwerkerbewertungen_evaluation.csv&quot;</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Tatsächlich&quot;</span><span class="p">,</span> <span class="s2">&quot;Vorhersage&quot;</span><span class="p">])],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_t</span><span class="p">[</span><span class="n">df_t</span><span class="p">[</span><span class="s2">&quot;Tatsächlich&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">df_t</span><span class="p">[</span><span class="s2">&quot;Vorhersage&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">df_t</span><span class="p">[</span><span class="n">df_t</span><span class="p">[</span><span class="s2">&quot;Tatsächlich&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">df_t</span><span class="p">[</span><span class="s2">&quot;Vorhersage&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2277, 6)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ranking</th>
+      <th>Bewertungstext</th>
+      <th>Anzahl Wörter</th>
+      <th>Token</th>
+      <th>Tatsächlich</th>
+      <th>Vorhersage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>23230</th>
+      <td>5</td>
+      <td>21 Schlüssel des Fahrradschlosses abgebrochen, das Fahrrad natürlich abgeschlossen. Holland in Not, da das Fahrrad am nächsten Tag gebraucht wurde. Erst telefonisch Tipps zur evt. Lösung des Probl...</td>
+      <td>66</td>
+      <td>['schlüssel', 'fahrradschlosses', 'abgebrochen', 'fahrrad', 'natürlich', 'abgeschlossen', 'holland', 'not', 'fahrrad', 'nächsten', 'tag', 'gebraucht', 'wurde', 'erst', 'telefonisch', 'tipps', 'evt...</td>
+      <td>positive Bewertung</td>
+      <td>negative Bewertung</td>
+    </tr>
+    <tr>
+      <th>28251</th>
+      <td>5</td>
+      <td>Sommer Die Firma Schwätzer hat unser Bad barrierefrei umgebaut. Von der Angebotsabgabe bis zur endgültigen Fertigstellung hat alles reibungslos funktioniert. Obwohl wir 3 Wochen lang täglich mit d...</td>
+      <td>138</td>
+      <td>['sommer', 'firma', 'schwätzer', 'bad', 'barrierefrei', 'umgebaut', 'angebotsabgabe', 'endgültigen', 'fertigstellung', 'reibungslos', 'funktioniert', 'obwohl', 'wochen', 'lang', 'täglich', 'mitarb...</td>
+      <td>positive Bewertung</td>
+      <td>negative Bewertung</td>
+    </tr>
+    <tr>
+      <th>28737</th>
+      <td>1</td>
+      <td>Für ein Ersatzteil (Sprüharm) für einen Neff-Geschirrspüler musste ich 242,00 € nach 15 Tagen Wartezeit bezahlen. Der Sprüharm kostet im Netz 42€. Leider habe ich das zu spät festgestellt. Ich fin...</td>
+      <td>45</td>
+      <td>['ersatzteil', 'sprüharm', 'tagen', 'wartezeit', 'bezahlen', 'sprüharm', 'kostet', 'netz', 'leider', 'spät', 'festgestellt', 'finde', 'preis', 'unverhältnismäßig', 'hoch', 'empfehle', 'ersatzteile...</td>
+      <td>negative Bewertung</td>
+      <td>neutrale Bewertung</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Wie zu sehen ist, gibt es manche Bewertungstexte aus denen nicht ganz klar hervorgeht, ob es sich um eine positive, negative oder eher neutrale Bewertung handelt. Stellenweise ist es selbst aus Sichtweise eines Sachbearbeiters nicht einfach den Text eindeutig zu identifizieren. Zudem besteht auch die Chance, dass manche davon Fake Bewertungen sind. Ein weiterer Aspekt ist die Tatsache, dass die Rankings in den Testdaten oft subjektiv sind. Beispielsweise schreibt jemand eine sehr gute Bewertung und vergibt dennoch nur 3 oder 4 Sterne. Der semantische Inhalt der Bewertung muss nicht immer mit der tatsächlichen Bewertung übereinstimmen. Aber wir können das auch ganz einfach selbst, wie folgt, testen:</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Textklassifizierer testen:</p>
+<pre data-executable="true" data-readonly="true" data-language="python">
+from sentimental_class import *
+import ipywidgets as widgets
+x = widgets.Label("Gefühlsanalyse:", layout=widgets.Layout(display="flex", justify_content="center", width="40%", border="solid"))
+text_widget = widgets.Textarea(
+    value='Die Handwerksbetriebe in Ulm sind die besten!',
+    placeholder='Gib eine Bewertung ein',
+    description='Nachricht:',
+    layout=widgets.Layout(display="flex", justify_content="center", width="40%"),
+    disabled=False
+)
+model_b = SentimentModel("nlptown/bert-base-multilingual-uncased-sentiment")
+res = model_b.predict_sentiment([text_widget.value])
+emoji = lambda x: '😄' if 'positive' in x else ('😡' if 'neutral' not in x else '😐')
+y = widgets.Label(emoji(res[0]), layout=widgets.Layout(display="flex", justify_content="center", width="40%", border="solid"))
+button = widgets.Button(description="Ist das eine gute Bewertung?", layout=widgets.Layout(display="flex", justify_content="center", width="40%"))
+output = widgets.Output()
+def on_button_clicked(b):
+    with output:
+        res = model_b.predict_sentiment([text_widget.value])
+        y.value=emoji(res[0])
+button.on_click(on_button_clicked)
+display(x, text_widget, button, y, output)
+</pre>
+</div>
+<div class="exercise dropdown admonition" id="docs/evaluation-exercise-0">
+
+<p class="admonition-title">Exercise (Ihre Aufgaben)</p>
+<div class="section" id="exercise-content">
+<ul class="simple">
+<li><p>Laden Sie das Jupyter Notebook <code class="docutils literal notranslate"><span class="pre">DataLab0x_Gefühlsanalyse_Evaluation.ipynb</span></code> und führen es aus.</p></li>
+<li><p>Bei der <code class="docutils literal notranslate"><span class="pre">Bewertungsfunktion(n=15)</span></code> haben wir <span class="math notranslate nohighlight">\(15\)</span> Handwerkerbewertungen betrachtet. Ergeben diese Sinn? Was ist mit den falsch vorhergesagten Bewertungen? Führen Sie die Funktion für <span class="math notranslate nohighlight">\(n=50\)</span> aus.</p></li>
+<li><p>Auf der Homepage von <a class="reference external" href="https://huggingface.co/nlptown/bert-base-multilingual-uncased-sentiment">huggingface</a> gibt es neben der normalen Testgenauigkeit (engl. accuracy) noch eine weitere: die sog. <em>accuracy off-by-1</em>. Was bedeutet diese? Ergänzen Sie das Skript um eine Funktion die diese Metrik verwendet. Vergleichen Sie die neue accuracy anschließend mit der bisherigen. Ist die Genauigkeit besser geworden?</p></li>
+</ul>
+</div>
+</div></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="modelling.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Modellierung</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Pascal Riedel<br/>
+    
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
