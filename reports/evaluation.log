@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "D:\Anaconda\envs\pytorch\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+    executenb(
+  File "D:\Anaconda\envs\pytorch\lib\site-packages\nbclient\client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "D:\Anaconda\envs\pytorch\lib\site-packages\nbclient\util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "D:\Anaconda\envs\pytorch\lib\site-packages\nbclient\util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "D:\Anaconda\envs\pytorch\lib\asyncio\base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "D:\Anaconda\envs\pytorch\lib\site-packages\nbclient\client.py", line 553, in async_execute
+    await self.async_execute_cell(
+  File "D:\Anaconda\envs\pytorch\lib\site-packages\nbclient\client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "D:\Anaconda\envs\pytorch\lib\site-packages\nbclient\client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+cm = confusion_matrix(y_true, y_pred)
+print(f'{type(cm)}\n{np.sum(cm)}')
+plt.figure(figsize=(7,7))
+plot_confusion_matrix(cm, ['negativ', 'neutral', 'positiv'], title="Bewertungstabelle")
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mNameError[0m                                 Traceback (most recent call last)
+[1;32m~\AppData\Local\Temp/ipykernel_24364/2379355759.py[0m in [0;36m<module>[1;34m[0m
+[1;32m----> 1[1;33m [0mcm[0m [1;33m=[0m [0mconfusion_matrix[0m[1;33m([0m[0my_true[0m[1;33m,[0m [0my_pred[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m      2[0m [0mprint[0m[1;33m([0m[1;34mf'{type(cm)}\n{np.sum(cm)}'[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m      3[0m [0mplt[0m[1;33m.[0m[0mfigure[0m[1;33m([0m[0mfigsize[0m[1;33m=[0m[1;33m([0m[1;36m7[0m[1;33m,[0m[1;36m7[0m[1;33m)[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m      4[0m [0mplot_confusion_matrix[0m[1;33m([0m[0mcm[0m[1;33m,[0m [1;33m[[0m[1;34m'negativ'[0m[1;33m,[0m [1;34m'neutral'[0m[1;33m,[0m [1;34m'positiv'[0m[1;33m][0m[1;33m,[0m [0mtitle[0m[1;33m=[0m[1;34m"Bewertungstabelle"[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+
+[1;31mNameError[0m: name 'y_true' is not defined
+NameError: name 'y_true' is not defined
+
